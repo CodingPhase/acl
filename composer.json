@@ -1,0 +1,29 @@
+{
+  "name": "codingphase/acl",
+  "description": "The package provides a way to add Role-based Permissions to Laravel",
+  "keywords": [
+    "permissions",
+    "roles",
+    "laravel"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hesto",
+      "email": "losiakp@gmail.com"
+    },
+    {
+      "name": "Andrzej Żmudziński",
+      "email": "jendrusha@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "5.1 - 5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "CodingPhase\\Acl\\": "src/"
+    }
+  }
+}
