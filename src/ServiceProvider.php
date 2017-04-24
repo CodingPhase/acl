@@ -23,7 +23,6 @@ class ServiceProvider extends Provider
     {
         $this->handleMigrations();
         $this->publishConfig();
-        $this->definePermissions();
         $this->defineRoleDirective();
     }
 
@@ -59,16 +58,6 @@ class ServiceProvider extends Provider
     protected function handleMigrations()
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-    }
-
-    /**
-     * @return void
-     */
-    protected function definePermissions()
-    {
-        if (! Schema::hasTable('permissions')) {
-            return;
-        }
     }
 
     /**
