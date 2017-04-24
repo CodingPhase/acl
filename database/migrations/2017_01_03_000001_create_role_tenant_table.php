@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlansTenantsTable extends Migration
+class CreateRoleTenantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePlansTenantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('plans_tenants', function (Blueprint $table) {
+        Schema::create('role_tenant', function (Blueprint $table) {
             $table->unsignedInteger('tenant_id')->index();
             $table->foreign('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
-            $table->unsignedInteger('plan_id')->index();
-            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-            $table->primary(['plan_id', 'tenant_id']);
+            $table->unsignedInteger('role_id')->index();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->primary(['role_id', 'tenant_id']);
         });
     }
 
@@ -29,6 +29,6 @@ class CreatePlansTenantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plans_tenants');
+        Schema::dropIfExists('role_tenant');
     }
 }

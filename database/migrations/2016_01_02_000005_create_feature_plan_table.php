@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeaturesPlansTable extends Migration
+class CreateFeaturePlanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFeaturesPlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('features_plans', function (Blueprint $table) {
+        Schema::create('feature_plan', function (Blueprint $table) {
             $table->unsignedInteger('feature_id')->index();
             $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
             $table->unsignedInteger('plan_id')->index();
@@ -29,6 +29,6 @@ class CreateFeaturesPlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('features_plans');
+        Schema::dropIfExists('feature_plan');
     }
 }

@@ -50,7 +50,7 @@ class ServiceProvider extends Provider
      */
     protected function publishConfig()
     {
-        $this->publishes([__DIR__ . '/../config/config.php' => base_path('acl')]);
+        $this->publishes([__DIR__ . '/../config/config.php' => base_path('config/acl.php')]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ServiceProvider extends Provider
      */
     protected function handleMigrations()
     {
-        $this->publishes([__DIR__ . '/../database/migrations' => base_path('database/migrations')]);
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
@@ -69,12 +69,6 @@ class ServiceProvider extends Provider
         if (! Schema::hasTable('permissions')) {
             return;
         }
-
-        Permission::get()->map(function ($permission) {
-            Gate::define($permission->name, function ($user) use ($permission) {
-                return $user->hasPermissionTo($permission);
-            });
-        });
     }
 
     /**
