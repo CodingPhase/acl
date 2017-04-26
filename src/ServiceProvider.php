@@ -23,7 +23,6 @@ class ServiceProvider extends Provider
     {
         $this->handleMigrations();
         $this->publishConfig();
-        $this->defineRoleDirective();
     }
 
     /**
