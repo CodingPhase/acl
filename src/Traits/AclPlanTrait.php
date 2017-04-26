@@ -2,10 +2,7 @@
 
 namespace CodingPhase\Acl\Traits;
 
-/**
- * Class HasPermissionsTrait
- * @package CodingPhase\Permissions\Traits
- */
+
 trait AclPlanTrait
 {
     public function tenants()

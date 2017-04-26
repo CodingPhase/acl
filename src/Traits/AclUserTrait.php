@@ -2,10 +2,6 @@
 
 namespace CodingPhase\Acl\Traits;
 
-/**
- * Class HasPermissionsTrait
- * @package CodingPhase\Permissions\Traits
- */
 trait AclUserTrait
 {
     public function roles()
@@ -22,7 +18,9 @@ trait AclUserTrait
     {
         $name = $role;
 
-        if($role instanceof Role) {
+        $class = config('acl.role');
+
+        if($role instanceof $class) {
             $name = $role->name;
         }
 
@@ -33,5 +31,14 @@ trait AclUserTrait
         }
 
         return false;
+    }
+
+    public function hasPermission($permission)
+    {
+        $result = $this->roles()->whereHas('permissions', function ($query) use ($permission) {
+            $query->where('name', $permission);
+        })->count();
+
+        return (boolean)$result;
     }
 }

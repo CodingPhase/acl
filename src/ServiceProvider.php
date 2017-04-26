@@ -59,18 +59,4 @@ class ServiceProvider extends Provider
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
-
-    /**
-     * @return void
-     */
-    protected function defineRoleDirective()
-    {
-        Blade::directive('role', function ($role) {
-            return "<?php if (auth()->check() && auth()->user()->hasRole({$role})): ?>";
-        });
-
-        Blade::directive('endrole', function ($role) {
-            return "<?php endif; ?>";
-        });
-    }
 }

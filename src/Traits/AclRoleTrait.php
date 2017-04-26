@@ -2,10 +2,7 @@
 
 namespace CodingPhase\Acl\Traits;
 
-/**
- * Class HasPermissionsTrait
- * @package CodingPhase\Permissions\Traits
- */
+
 trait AclRoleTrait
 {
     public function tenants()
@@ -27,7 +24,9 @@ trait AclRoleTrait
     {
         $name = $permission;
 
-        if($permission instanceof Permission) {
+        $class = config('acl.permission');
+
+        if($permission instanceof $class) {
             $name = $permission->name;
         }
 
