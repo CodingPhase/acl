@@ -21,6 +21,13 @@
     "php": ">=7.0.0",
     "illuminate/support": "5.1 - 5.4"
   },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CodingPhase\\Acl\\AclServiceProvider"
+      ]
+    }
+  },
   "autoload": {
     "psr-4": {
       "CodingPhase\\Acl\\": "src/"

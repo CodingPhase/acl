@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider as Provider;
 
-class ServiceProvider extends Provider
+class AclServiceProvider extends Provider
 {
     /**
      * @var bool
